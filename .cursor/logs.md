@@ -18,3 +18,5 @@ Use this file to track daily progress. Append entries; do not delete history.
 | 2025-07-17 | feat(sdk): brand kit creator UI & SDK integration | Implemented BrandKitPage with logo/url analysis, palette + font preview, and Brand Kit creation via Express SDK | — |
 
 | 2025-07-17 | feat(linter): brandguard real-time validator | Added BrandGuard context, hook subscribing to canvas events, off-brand color/font detection with contrast check | — |
+
+| 2025-07-17 | feat(i18n): add Spanish locale, responsive sidebar, code-splitting, and test coverage | Added i18n (es), responsive design, lazy loading, and basic test coverage for BrandKitPage/SettingsPage | — |

@@ -1,0 +1,19 @@
+{
+  "brandKitGenerator": "Generador de Kit de Marca",
+  "uploadLogo": "Subir logotipo",
+  "orWebsiteUrl": "o URL del sitio web",
+  "analyze": "Analizar",
+  "palette": "Paleta",
+  "fonts": "Fuentes",
+  "createBrandKit": "Crear Kit de Marca",
+  "settings": "Configuraciones",
+  "placeholderBrandKit": "Espacio reservado para el formulario de generación de kit de marca.",
+  "placeholderSettings": "Espacio reservado para la configuración del complemento.",
+  "analysisFailed": "El análisis falló",
+  "runAnalysisFirst": "Ejecute el análisis primero",
+  "brandKitCreated": "¡Kit de Marca creado!",
+  "failedToCreateKit": "No se pudo crear el kit",
+  "offBrandColor": "Color fuera de marca detectado",
+  "lowContrastColor": "Color de bajo contraste",
+  "offBrandFont": "Fuente fuera de marca"
+}

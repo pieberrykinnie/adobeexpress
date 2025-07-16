@@ -7,22 +7,25 @@ import BrandKitPage from './pages/BrandKitPage';
 import SettingsPage from './pages/SettingsPage';
 import { BrandGuardProvider } from './contexts/BrandGuardContext';
 import { useBrandGuard } from './hooks/useBrandGuard';
+import { I18nProvider } from './i18n';
 
 function App() {
   // activate linter once rules available
   useBrandGuard();
   return (
     <ChakraProvider theme={theme} resetCSS>
-      <BrandGuardProvider>
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}> 
-              <Route index element={<BrandKitPage />} />
-              <Route path="settings" element={<SettingsPage />} />
-            </Route>
-          </Routes>
-        </HashRouter>
-      </BrandGuardProvider>
+      <I18nProvider>
+        <BrandGuardProvider>
+          <HashRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}> 
+                <Route index element={<BrandKitPage />} />
+                <Route path="settings" element={<SettingsPage />} />
+              </Route>
+            </Routes>
+          </HashRouter>
+        </BrandGuardProvider>
+      </I18nProvider>
     </ChakraProvider>
   );
 }

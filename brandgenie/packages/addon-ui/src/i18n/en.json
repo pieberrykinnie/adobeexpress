@@ -1,0 +1,19 @@
+{
+  "brandKitGenerator": "Brand Kit Generator",
+  "uploadLogo": "Upload Logo",
+  "orWebsiteUrl": "or Website URL",
+  "analyze": "Analyze",
+  "palette": "Palette",
+  "fonts": "Fonts",
+  "createBrandKit": "Create Brand Kit",
+  "settings": "Settings",
+  "placeholderBrandKit": "Placeholder for brand kit generation form.",
+  "placeholderSettings": "Placeholder for addon settings.",
+  "analysisFailed": "Analysis failed",
+  "runAnalysisFirst": "Run analysis first",
+  "brandKitCreated": "Brand Kit created!",
+  "failedToCreateKit": "Failed to create kit",
+  "offBrandColor": "Off-brand color detected",
+  "lowContrastColor": "Low contrast color",
+  "offBrandFont": "Off-brand font"
+}

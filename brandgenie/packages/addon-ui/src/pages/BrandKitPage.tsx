@@ -16,6 +16,7 @@ import {
 import React, { useState } from 'react';
 import { fileToBase64 } from '../utils/fileToBase64';
 import { useBrandGuardContext } from '../contexts/BrandGuardContext';
+import { useI18n } from '../i18n';
 // @ts-ignore – Express add-on SDK is injected in runtime
 declare const addOnUISdk: any;
 
@@ -27,6 +28,7 @@ type AnalysisResult = {
 const BrandKitPage = () => {
   const toast = useToast();
   const { setRules } = useBrandGuardContext();
+  const { t } = useI18n();
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
@@ -100,11 +102,11 @@ const BrandKitPage = () => {
   };
 
   return (
-    <VStack align="stretch" spacing={6}>
-      <Heading size="md">Brand Kit Generator</Heading>
+    <VStack align="stretch" spacing={6} maxW={{ base: '100vw', md: '600px' }} mx="auto">
+      <Heading size="md">{t('brandKitGenerator')}</Heading>
 
       <FormControl>
-        <FormLabel>Upload Logo</FormLabel>
+        <FormLabel>{t('uploadLogo')}</FormLabel>
         <Input
           type="file"
           accept="image/*"
@@ -112,9 +114,9 @@ const BrandKitPage = () => {
         />
       </FormControl>
 
-      <HStack>
-        <FormControl>
-          <FormLabel>or Website URL</FormLabel>
+      <HStack flexWrap="wrap">
+        <FormControl flex={1} minW="200px">
+          <FormLabel>{t('orWebsiteUrl')}</FormLabel>
           <Input
             placeholder="https://example.com"
             value={websiteUrl}
@@ -122,7 +124,7 @@ const BrandKitPage = () => {
           />
         </FormControl>
         <Button onClick={handleAnalyze} colorScheme="brand" isLoading={loading}>
-          Analyze
+          {t('analyze')}
         </Button>
       </HStack>
 
@@ -131,7 +133,7 @@ const BrandKitPage = () => {
           {analysis.palette && (
             <Box>
               <Heading size="sm" mb={2}>
-                Palette
+                {t('palette')}
               </Heading>
               <HStack>
                 {analysis.palette.map((c) => (
@@ -143,7 +145,7 @@ const BrandKitPage = () => {
           {analysis.fonts && (
             <Box>
               <Heading size="sm" mb={2}>
-                Fonts
+                {t('fonts')}
               </Heading>
               <SimpleGrid columns={3} spacing={2}>
                 {analysis.fonts.map((f) => (
@@ -153,7 +155,7 @@ const BrandKitPage = () => {
             </Box>
           )}
           <Button colorScheme="green" onClick={handleCreateKit} mt={4}>
-            Create Brand Kit
+            {t('createBrandKit')}
           </Button>
         </>
       )}
