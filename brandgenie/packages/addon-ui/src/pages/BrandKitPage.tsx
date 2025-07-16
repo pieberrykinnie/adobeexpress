@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { fileToBase64 } from '../utils/fileToBase64';
+import { useBrandGuardContext } from '../contexts/BrandGuardContext';
 // @ts-ignore – Express add-on SDK is injected in runtime
 declare const addOnUISdk: any;
 
@@ -25,6 +26,7 @@ type AnalysisResult = {
 
 const BrandKitPage = () => {
   const toast = useToast();
+  const { setRules } = useBrandGuardContext();
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
@@ -88,6 +90,9 @@ const BrandKitPage = () => {
       }
 
       toast({ status: 'success', description: 'Brand Kit created!' });
+
+      // Update linter rules
+      setRules({ colors: analysis.palette, fonts: analysis.fonts || [] });
     } catch (err) {
       console.error(err);
       toast({ status: 'error', description: 'Failed to create kit' });

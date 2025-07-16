@@ -16,3 +16,5 @@ Use this file to track daily progress. Append entries; do not delete history.
 | 2025-07-17 | feat(api): add url analysis & font recommendation; firefly mock endpoints | Completed URL scraping, font similarity, Firefly palette & template endpoints with KV caching | — |
 
 | 2025-07-17 | feat(sdk): brand kit creator UI & SDK integration | Implemented BrandKitPage with logo/url analysis, palette + font preview, and Brand Kit creation via Express SDK | — |
+
+| 2025-07-17 | feat(linter): brandguard real-time validator | Added BrandGuard context, hook subscribing to canvas events, off-brand color/font detection with contrast check | — |
