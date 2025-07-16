@@ -9,4 +9,4 @@ Use this file to track daily progress. Append entries; do not delete history.
 | 2025-07-17 | feat(addon): scaffold express addon-ui  4fe23ab | Add-on UI skeleton loads in Code Playground | — |
 -->
 
-| 2025-07-17 | feat(addon): scaffold express addon-ui | Added addon-ui package with Vite+React+TS, manifest.json, sample panel, sandbox placeholder | — |
+| 2025-07-17 | feat(ui): add chakra theme, router, sidebar | Integrated Chakra UI theme, HashRouter, sidebar layout, placeholder pages | — |
