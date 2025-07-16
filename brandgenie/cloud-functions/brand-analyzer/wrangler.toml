@@ -3,5 +3,9 @@ main = "./src/index.ts"
 compatibility_date = "2025-07-17"
 usage_model = "bundled"
 
+[[kv_namespaces]]
+binding = "ASSETS"
+id = "${KV_ASSETS_ID:-00000000000000000000000000000000}"
+
 [build]
 command = "pnpm install && pnpm -F @brandgenie/brand-analyzer run build"

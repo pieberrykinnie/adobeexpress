@@ -12,3 +12,5 @@ Use this file to track daily progress. Append entries; do not delete history.
 | 2025-07-17 | feat(ui): add chakra theme, router, sidebar | Integrated Chakra UI theme, HashRouter, sidebar layout, placeholder pages | — |
 
 | 2025-07-17 | feat(cf): scaffold brand-analyzer worker | Added Cloudflare Worker with /analyze/logo endpoint using Vibrant palette extraction | — |
+
+| 2025-07-17 | feat(api): add url analysis & font recommendation; firefly mock endpoints | Completed URL scraping, font similarity, Firefly palette & template endpoints with KV caching | — |
