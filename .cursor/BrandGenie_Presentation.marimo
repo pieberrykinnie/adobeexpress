@@ -1,0 +1,52 @@
+# BrandGenie – Adobe Express Add-on
+
+---
+
+## The Problem
+- Brand setup is tedious and manual
+- Inconsistent branding leads to lost trust
+- Most users skip Brand Kits due to friction
+
+---
+
+## The Solution: BrandGenie
+- Upload a logo or enter a website URL
+- Instantly generate a Brand Kit: colors, fonts, templates
+- Powered by AI and Adobe Firefly
+
+---
+
+## How It Works
+1. User uploads logo or enters URL
+2. BrandGenie analyzes colors, fonts, and style
+3. Previews palette and font set
+4. One click: creates Brand Kit in Express
+
+---
+
+## Live Demo
+- Analyze a logo or website
+- Preview palette and fonts
+- Create Brand Kit
+- BrandGuard linter: real-time warnings for off-brand colors/fonts
+
+---
+
+## Technical Highlights
+- Cloudflare Worker for fast analysis
+- Firefly API for AI-enhanced palettes/templates
+- Express Add-on SDK for Brand Kit creation
+- Real-time BrandGuard linter
+
+---
+
+## Impact
+- Saves hours for every new brand
+- Makes professional branding accessible to all
+- Ready for production and scale
+
+---
+
+## Thank You!
+- Questions?
+- [Your Name] | [Contact Info]
