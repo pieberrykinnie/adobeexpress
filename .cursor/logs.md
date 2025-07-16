@@ -8,3 +8,5 @@ Use this file to track daily progress. Append entries; do not delete history.
 <!-- Example Entry
 | 2025-07-17 | feat(addon): scaffold express addon-ui  4fe23ab | Add-on UI skeleton loads in Code Playground | — |
 -->
+
+| 2025-07-17 | chore(repo): setup pnpm monorepo | Created monorepo structure, root configs, CI pipeline | — |
