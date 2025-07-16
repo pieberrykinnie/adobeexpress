@@ -1,0 +1,20 @@
+{
+  "name": "@brandgenie/brand-analyzer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "wrangler deploy --dry-run"
+  },
+  "dependencies": {
+    "@vibrant/core": "^3.3.1",
+    "@vibrant/png": "^3.3.1",
+    "@vibrant/jpeg": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "wrangler": "^3.56.0"
+  }
+}

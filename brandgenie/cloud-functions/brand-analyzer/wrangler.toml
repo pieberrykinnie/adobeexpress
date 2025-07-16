@@ -1,0 +1,7 @@
+name = "brand-analyzer"
+main = "./src/index.ts"
+compatibility_date = "2025-07-17"
+usage_model = "bundled"
+
+[build]
+command = "pnpm install && pnpm -F @brandgenie/brand-analyzer run build"
