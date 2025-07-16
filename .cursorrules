@@ -1,0 +1,101 @@
+# BrandGenie Development Guidelines (`.cursorrules`)
+
+These rules govern all engineering work for the BrandGenie Adobe Express Add-on. **They are mandatory.**
+
+---
+
+## 1. Terminal Commands
+1. Default shell commands **must be non-interactive**. Always append non-interactive flags (e.g., `--yes`, `--force`, `--quiet`).
+2. Commands that page output (e.g., `less`, `git log`) **must** pipe to `| cat`.
+3. Long-running tasks (e.g., `vite preview`, `wrangler dev`) should be started in the background (`&`) or via the workspace runner with `is_background = true`.
+4. Always `cd` to the project root (`/workspace/brandgenie`) before executing build/test scripts unless otherwise noted.
+5. Use **single-line** commands in scripts/CI to avoid ambiguous step parsing.
+
+---
+
+## 2. Package Manager & Tooling
+1. **pnpm** is the sole package manager; never use `npm` or `yarn`.
+2. Enable **pnpm workspaces**; each package declares its own `package.json` with minimal dependencies.
+3. Lockfile (`pnpm-lock.yaml`) must be committed; never modify manually.
+4. Global installs are prohibited—use `npx` or workspace binaries.
+5. Scripts should prefer `pnpm dlx` for one-off CLIs (e.g., `pnpm dlx create-react-app@latest`).
+
+---
+
+## 3. Code Documentation & Style
+1. **TypeDoc/JSDoc** comments are mandatory for every exported function, class, and public React component.
+2. All React components require Storybook stories.
+3. Markdown docs live in `docs/` and follow **semantic-header** structure (`#`, `##`, `###`).
+4. Use **ESLint** with the Airbnb + TypeScript config and **Prettier** for formatting. CI fails on lint or format errors.
+5. Commit messages **must** follow **Conventional Commits** (`type(scope): subject`).
+
+---
+
+## 4. Type Safety
+1. TypeScript **strict mode** must remain enabled; no `any` allowed (use `unknown` then narrow).
+2. Prefer `zod` or `io-ts` for runtime schema validation of external data (APIs, environment variables).
+3. React state should leverage discriminated unions where possible.
+4. CI blocks merges on TypeScript errors (`pnpm -r tsc --noEmit`).
+
+---
+
+## 5. Dependency Management
+1. Dependencies are grouped by workspace package; `dependencies` vs `devDependencies` must be accurate.
+2. Keep packages up-to-date with **Renovate** bot (configured in repo); semantic-version ranges (^).
+3. Remove unused deps promptly; lint with `depcheck` weekly.
+4. Avoid large client-side bundles; prefer dynamic imports and tree-shaking.
+
+---
+
+## 6. Authentication & Secrets
+1. API keys (Adobe Firefly, Adobe IO, Cloudflare) **never** live in source control.
+2. Secrets are injected via environment variables at runtime (`process.env` in Worker, `import.meta.env` in Vite).
+3. Use Cloudflare **Secrets Manager** for Workers and `.env.local` for local dev.
+4. Add new secrets to `.env.example` with placeholder values and a doc note.
+
+---
+
+## 7. Environment Variables
+| Variable | Scope | Example | Description |
+|----------|-------|---------|-------------|
+| `FIREFLY_API_KEY` | Worker | `fi-afxxxx` | Auth token for Adobe Firefly APIs |
+| `ADOBE_IO_CLIENT_ID` | Worker | `123456` | OAuth client for Adobe IO |
+| `VITE_BRANDGENIE_ENV` | Frontend | `development` | Build mode flag (prefixed with `VITE_` for Vite) |
+
+Rules:
+1. **Never** prefix server-only vars with `VITE_`.
+2. Validate variables at startup with `zod` and fail fast.
+
+---
+
+## 8. Testing Philosophy
+1. **Unit Tests**: Jest + ts-jest; target 90% coverage.
+2. **Integration Tests**: Test Express SDK interactions with mocks.
+3. **E2E Tests**: Playwright automation in Adobe Express Code Playground.
+4. **Accessibility Tests**: axe-core in Storybook CI.
+5. Each new feature PR must include appropriate tests or justify omission.
+
+---
+
+## 9. CI/CD
+1. GitHub Actions ➔ stages: **lint → typecheck → test → build**.
+2. Deploy preview Workers using **wrangler** on PRs (preview instances expire in 48h).
+3. Tag releases with Conventional Commits **`chore(release): vX.Y.Z`**.
+
+---
+
+## 10. Contribution Workflow
+1. Branch from `main` with prefix `feat/`, `fix/`, `chore/`.
+2. Open Draft PR early; commit small, logical changes.
+3. Require **two** approving reviews for merge to `main` (self-review counts as one during hackathon rush).
+4. Rebase (not merge) to keep linear history.
+
+---
+
+## 11. Licensing & Attribution
+1. All first-party code licensed MIT; third-party code must retain original licenses.
+2. Generated assets/images marked clearly (`/public/demo-assets/`).
+
+---
+
+_Compliance with `.cursorrules` is checked during CI. Violations block merging._
