@@ -1,0 +1,19 @@
+{
+  "id": "brandgenie",
+  "name": "BrandGenie – Brand Kit Generator",
+  "version": "0.0.1",
+  "defaultLocale": "en",
+  "entryPoints": [
+    {
+      "type": "panel",
+      "id": "panel1",
+      "label": {
+        "default": "BrandGenie"
+      },
+      "main": "index.html",
+      "icon": "icon.png",
+      "documentSandbox": "documentSandbox/code.js"
+    }
+  ],
+  "permissions": []
+}

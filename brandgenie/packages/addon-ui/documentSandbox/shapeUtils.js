@@ -1,0 +1,1 @@
+// Placeholder utilities – real implementation will follow in Phase 2+
